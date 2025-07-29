@@ -5,7 +5,7 @@ answer = input('Do you want to add a budget? y/n ')
 while answer == "y":
     budget_name = input("What is the name of your budget? ")
     outgoings.add_budget(budget_name, float(input(f'What is your '
-                                                  '{budget_name} budget? ')))
+                                                  f'{budget_name} budget? ')))
     answer = input('Do you want to add any more budgets? y/n ')
 outgoings.print_summary()
 answer = input('Do you want to change any of your budgets? y/n ')
