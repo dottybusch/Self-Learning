@@ -3,9 +3,18 @@ import random
 result = ''
 gameon = True
 
+
 while gameon:
 
-    user = input("Pick Rock, Paper, or Scissors! ")
+    play_again = "x"
+    user = "x"
+
+    while user.lower()[:3] not in ["roc", "pap", "sci"]:
+
+        user = input("Pick Rock, Paper, or Scissors! ")
+
+        if user.lower()[:3] not in ["roc", "pap", "sci"]:
+            print("Invalid choice!")
 
 
     x = random.randint(0,30)
@@ -34,7 +43,14 @@ while gameon:
     elif user.lower()[:3] == 'pap' and result.lower()[:3] == 'roc':
         print("You win!")
 
-    play_again = input("\nDo you want to play again? Yes/No ")
 
-    if play_again.lower()[0] == "n":
-        gameon = False
+    while play_again.lower()[0] not in ["y", "n"]:
+
+        play_again = input("\nDo you want to play again? Yes/No ")
+
+        if play_again.lower()[0] not in ["y", "n"]:
+            print("Invalid choice!")
+
+        if play_again.lower()[0] == "n":
+            gameon = False
+

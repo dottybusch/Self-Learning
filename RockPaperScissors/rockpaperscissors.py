@@ -3,9 +3,18 @@ import random
 result = ''
 gameon = True
 
+
 while gameon:
 
-    user = input("Wähle Schere, Stein oder Papier! ")
+    play_again = "x"
+    user = "x"
+
+    while user.lower()[:3] not in ["sch", "ste", "pap"]:
+
+        user = input("Wähle Schere, Stein oder Papier! ")
+
+        if user.lower()[:3] not in ["sch", "ste", "pap"]:
+            print("Ungültige Auswahl!")
 
 
     x = random.randint(0,30)
@@ -33,8 +42,14 @@ while gameon:
         print("Du verlierst!")
     elif user.lower()[:3] == 'pap' and result.lower()[:3] == 'ste':
         print("Du gewinnst!")
+        
 
-    play_again = input("\nMöchtest du noch einmal spielen? Ja/Nein ")
+    while play_again.lower()[0] not in ["j", "n"]:
 
-    if play_again.lower()[0] == "n":
-        gameon = False
+        play_again = input("\nMöchtest du noch einmal spielen? Ja/Nein ")
+
+        if play_again.lower()[0] not in ["j", "n"]:
+            print("Ungültige Auswahl!")
+
+        if play_again.lower()[0] == "n":
+            gameon = False
