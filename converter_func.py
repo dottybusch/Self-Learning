@@ -1,5 +1,5 @@
-def hours_to_seconds(hours):
-    seconds = hours * 60 * 60
+def hours_to_seconds(hours, minutes):
+    seconds = (hours * 60 * 60) + (minutes * 60)
     return round(seconds)
 
 def hours_to_minutes(hours):
@@ -34,3 +34,20 @@ def seconds_to_hours(seconds):
         print(str(modhrs) + " Hour " + str(modmins) + " Minutes " + str(modsecs)
                + " Seconds")
     return(seconds / (60*60))
+
+def kmh_to_minkm(kmh):
+
+    if 60 % kmh == 0:
+        minkm = 60 / kmh
+        print(str(round(minkm)) + " Minutes/km")
+    else:
+        modmins = round(((60 - (60 % kmh)) / kmh))
+        modsecs = round((60 % kmh) / kmh * 60)
+        print(str(modmins) + " Minutes " + str(modsecs) + " Seconds per km")
+    return (60 / kmh)
+
+def minkm_to_kmh(minkm, seckm):
+
+    kmh = round(60 / (minkm + (seckm/60)),2)
+    print(str(kmh) + " km/h")
+    return kmh
